@@ -10,13 +10,13 @@
     //$db = 'api/bgg.sqlite';
     if (!$dbhandle) die ($error);
     $query = "SELECT * FROM games WHERE average > {$int_input['average']} 
-    AND objectid > 0
-    AND avgweight > 0
-    AND rank > 0
-    AND minplayers > 0
-    AND maxplayers > 0
-    AND playingtime > 0
-    AND bggbestplayers > 0
+    AND objectid > {$int_input['objectid']}
+    AND avgweight > {$int_input['avgweight']}
+    AND rank > {$int_input['rank']}
+    AND minplayers > {$int_input['minplayers']}
+    AND maxplayers > {$int_input['maxplayers']}
+    AND playingtime > {$int_input['playingtime']}
+    AND bggbestplayers > {$int_input['bggbestplayers']}
     ";
     $statement = $dbhandle->prepare($query);
     $statement->execute();
